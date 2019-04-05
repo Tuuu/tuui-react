@@ -10,6 +10,9 @@ module.exports = {
     library: 'TUUI', // 库的名称
     libraryTarget: 'umd', // 库的模块化定义 common js / amd / umd
   },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+  },
   module: {
     rules: [
       {
@@ -24,4 +27,18 @@ module.exports = {
       template: 'index.html',
     }),
   ],
+  externals: { // 外部库配置
+    react: { // 四个配置分别对应不同的打包工具
+      commonjs: 'react',
+      commonjs2: 'react',
+      amd: 'react',
+      root: 'React',
+    },
+    'react-dom': {
+      commonjs: 'react-dom',
+      commonjs2: 'react-dom',
+      amd: 'react-dom',
+      root: 'ReactDOM',
+    },
+  },
 }
