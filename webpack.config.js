@@ -18,6 +18,10 @@ module.exports = {
         test: /\.tsx?$/, // 以 ts/tsx 结尾的文件
         loader: 'awesome-typescript-loader',
       },
+      {
+        test: /icons.+\.svg$/,
+        loader: 'svg-sprite-loader',
+      },
     ],
   },
 }

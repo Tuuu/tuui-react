@@ -21,7 +21,10 @@
     "allowSyntheticDefaultImports": true,
     "noUnusedLocals": true
   },
-  "include": [],
+  "include": [
+    "types/**/*",
+    "lib/**/*"
+  ],
   "exclude": [
     "node_modules",
     "build",

@@ -1,12 +1,17 @@
 import React from 'react'
+import './importAllIcons'
 
 interface IconProps {
-  name: string,
+  name: string;
 }
 
-const Icon: React.FunctionComponent<IconProps> = (props) => {
+const Icon: React.FunctionComponent<IconProps> = props => {
   return (
-    <span>{props.name}</span>
+    <span>
+      <svg>
+        <use xlinkHref={`#${props.name}`}/>
+      </svg>
+    </span>
   )
 }
 
