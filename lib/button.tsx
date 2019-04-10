@@ -1,9 +1,7 @@
-import * as React from 'react'
+import * as React from 'react';
 
-function Button () {
-  return (
-    <div>按钮</div>
-  )
+function Button() {
+  return <div>按钮</div>;
 }
 
-export default Button
+export default Button;
