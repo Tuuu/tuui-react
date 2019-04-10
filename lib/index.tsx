@@ -15,7 +15,7 @@ ReactDom.render(
     {/*<Icon name="github"/>*/}
     {/*<Icon name="twitter"/>*/}
     {/*<Icon name="ins"/>*/}
-    <Icon onClick={fn} name="apple"/>
+    <Icon name="apple" className="apple" onClick={fn}/>
     <Icon onClick={() => console.log('Android')} name="android"/>
   </div>,
   document.getElementById('root'),
