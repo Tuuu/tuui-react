@@ -13,7 +13,9 @@ module.exports = {
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx'],
   moduleDirectories: ['node_modules'],
   moduleNameMapper: {
-    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': '<rootDir>/test/__mocks__/file-mock.js',
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+      '<rootDir>/test/__mocks__/file-mock.js', // 文件 mock
+    '\\.(css|less|sass|scss)$': '<rootDir>/test/__mocks__/object-mock.js', // Scss 等文件 mock
   },
   testMatch: ['<rootDir>/**/__tests__/**/*.unit.(js|jsx|ts|tsx)'], // 测试文件位置
   transform: {
@@ -21,4 +23,4 @@ module.exports = {
     '^.+\\.(ts|tsx)$': 'ts-jest',
   },
   setupFilesAfterEnv: ['<rootDir>test/setupTests.js'],
-}
+};

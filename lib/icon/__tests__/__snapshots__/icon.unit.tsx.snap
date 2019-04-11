@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`icon tests svg render 1`] = `
+<svg
+  className="tui-icon"
+>
+  <use
+    xlinkHref="#apple"
+  />
+</svg>
+`;
