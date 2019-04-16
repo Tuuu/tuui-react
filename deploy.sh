@@ -1,3 +1,3 @@
-#!/bin/env bash
+#!/bin/zsh
 npm version $1 && \
     git push
