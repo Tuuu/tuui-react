@@ -1,4 +1,4 @@
-import { classesJoin } from '../classes';
+import { classesJoin, scopeClassMaker } from '../classes';
 describe('classes', () => {
   it('接受 1 个 className', function() {
     const result = classesJoin('a');
@@ -19,5 +19,17 @@ describe('classes', () => {
   it('接受 0 个 className', function() {
     const result = classesJoin();
     expect(result).toEqual('');
+  });
+  it('添加 scope class 有后缀', function() {
+    const result = scopeClassMaker('tui-dialog');
+    expect(result('mask')).toEqual('tui-dialog-mask');
+  });
+  it('添加 scope class 无后缀', function() {
+    const result = scopeClassMaker('tui-dialog');
+    expect(result()).toEqual('tui-dialog');
+  });
+  it('添加 scope class 中文', function() {
+    const result = scopeClassMaker('tui-dialog');
+    expect(result('遮罩层')).toEqual('tui-dialog-遮罩层');
   });
 });
