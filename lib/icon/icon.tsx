@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classes from '../helpers/classes';
+import { classesJoin } from '../helpers/classes';
 import './importAllIcons';
 import './icon.scss';
 
@@ -11,7 +11,7 @@ interface IconProps extends React.SVGAttributes<SVGElement> {
 const Icon: React.FunctionComponent<IconProps> = props => {
   const { className, name, ...restProps } = props;
   return (
-    <svg className={classes('tui-icon', className)} {...restProps}>
+    <svg className={classesJoin('tui-icon', className)} {...restProps}>
       <use xlinkHref={`#${name}`} />
     </svg>
   );
