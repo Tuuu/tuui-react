@@ -17,7 +17,7 @@ const Dialog: React.FunctionComponent<Props> = props => {
         <div className={scopeClass('close')}>
           <Icon name="close" />
         </div>
-        <header className={scopeClass('中文')}>提示</header>
+        <header className={scopeClass('header')}>提示</header>
         <main className={scopeClass('main')}>{props.children}</main>
         <footer className={scopeClass('footer')}>
           <button>取消</button>
