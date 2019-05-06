@@ -1,0 +1,6 @@
+[class^=tui-] {
+  box-sizing: border-box;
+  &::after, &::before {
+    box-sizing: border-box;
+  }
+}
