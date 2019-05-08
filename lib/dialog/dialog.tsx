@@ -6,7 +6,7 @@ import { scopeClassMaker } from '../helpers/classes';
 
 interface Props {
   visible: boolean;
-  buttons: Array<ReactElement>;
+  buttons?: Array<ReactElement>;
   onclose: React.MouseEventHandler;
   closeOnClickMask?: boolean;
 }
@@ -30,11 +30,12 @@ const Dialog: React.FunctionComponent<Props> = props => {
         <header className={scopeClass('header')}>提示</header>
         <main className={scopeClass('main')}>{props.children}</main>
         <footer className={scopeClass('footer')}>
-          {props.buttons.map((button, index) =>
-            React.cloneElement(button, {
-              key: index,
-            }),
-          )}
+          {props.buttons &&
+            props.buttons.map((button, index) =>
+              React.cloneElement(button, {
+                key: index,
+              })
+            )}
         </footer>
       </div>
     </>
@@ -45,5 +46,26 @@ const Dialog: React.FunctionComponent<Props> = props => {
 Dialog.defaultProps = {
   closeOnClickMask: false,
 };
+
+const alert = (content: string) => {
+  const component = (
+    <Dialog
+      visible={true}
+      onclose={() => {
+        ReactDOM.render(React.cloneElement(component, { visible: false }), div); //隐藏 dialog
+        ReactDOM.unmountComponentAtNode(div); // 写在卸载 div
+        div.remove(); // 删除 div
+      }}
+    >
+      {content}
+    </Dialog>
+  );
+  const div = document.createElement('div');
+  document.body.append(div);
+  ReactDOM.render(component, div);
+  console.log(content);
+};
+
+export { alert };
 
 export default Dialog;
