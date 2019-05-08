@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import ReactDOM from 'react-dom';
 import './dialog.scss';
 import { Icon } from '../index';
 import { scopeClassMaker } from '../helpers/classes';
@@ -19,7 +20,7 @@ const Dialog: React.FunctionComponent<Props> = props => {
   const onClickMask: React.MouseEventHandler = e => {
     if (props.closeOnClickMask) props.onclose(e);
   };
-  return props.visible ? (
+  const dialogContent = props.visible ? (
     <>
       <div className={scopeClass('mask')} onClick={onClickMask} />
       <div className={scopeClass()}>
@@ -38,6 +39,7 @@ const Dialog: React.FunctionComponent<Props> = props => {
       </div>
     </>
   ) : null;
+  return ReactDOM.createPortal(dialogContent, document.body);
 };
 
 Dialog.defaultProps = {
