@@ -21,7 +21,7 @@ export default function() {
           <button onClick={() => setX(false)}>1</button>,
           <button onClick={() => setX(false)}>2</button>,
         ]}
-        onclose={() => setX(false)}
+        onClose={() => setX(false)}
       >
         <div>h1</div>
       </Dialog>
@@ -34,7 +34,7 @@ export default function() {
           <button onClick={() => setY(false)}>1</button>,
           <button onClick={() => setY(false)}>2</button>,
         ]}
-        onclose={() => setY(false)}
+        onClose={() => setY(false)}
       >
         <div>h1</div>
       </Dialog>
