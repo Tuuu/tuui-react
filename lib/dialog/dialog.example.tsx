@@ -1,10 +1,16 @@
 import * as React from 'react';
 import { useState } from 'react';
-import Dialog, { alert } from './dialog';
+import Dialog, { alert, confirm, modal } from './dialog';
 
 export default function() {
   const [x, setX] = useState(false);
   const [y, setY] = useState(false);
+  const openModal = () => {
+    const onClose = modal(<>
+        <h1>modal</h1>
+        <button onClick={() => onClose()}>close</button>
+      </>);
+  };
   return (
     <div>
       <h1>例子1：</h1>
@@ -34,6 +40,20 @@ export default function() {
       </Dialog>
       <h1>例子3：</h1>
       <button onClick={() => alert('alert')}>alert</button>
+      <button
+        onClick={() =>
+          confirm(
+            'confirm',
+            () => {
+              console.log('你点击了 yes');
+            },
+            () => console.log('你点击了 no')
+          )
+        }
+      >
+        confirm
+      </button>
+      <button onClick={openModal}>modal</button>
     </div>
   );
 }

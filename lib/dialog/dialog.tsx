@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 import ReactDOM from 'react-dom';
 import './dialog.scss';
 import { Icon } from '../index';
@@ -66,6 +66,50 @@ const alert = (content: string) => {
   console.log(content);
 };
 
-export { alert };
+const confirm = (content: string, yes?: () => void, no?: () => void) => {
+  const onYes = () => {
+    ReactDOM.render(React.cloneElement(component, { visible: false }), div);
+    ReactDOM.unmountComponentAtNode(div); // 写在卸载 div
+    div.remove(); // 删除 div
+    yes && yes();
+  };
+  const onNo = () => {
+    ReactDOM.render(React.cloneElement(component, { visible: false }), div);
+    ReactDOM.unmountComponentAtNode(div); // 写在卸载 div
+    div.remove(); // 删除 div
+    no && no();
+  };
+  const component = (
+    <Dialog
+      visible={true}
+      onclose={onNo}
+      buttons={[<button onClick={onYes}>yes</button>, <button onClick={onNo}>no</button>]}
+    >
+      {content}
+    </Dialog>
+  );
+  const div = document.createElement('div');
+  document.body.append(div);
+  ReactDOM.render(component, div);
+};
+
+const modal = (content: ReactNode) => {
+  const onClose = () => {
+    ReactDOM.render(React.cloneElement(component, { visible: false }), div);
+    ReactDOM.unmountComponentAtNode(div); // 写在卸载 div
+    div.remove(); // 删除 div
+  };
+  const component = (
+    <Dialog visible={true} onclose={onClose}>
+      {content}
+    </Dialog>
+  );
+  const div = document.createElement('div');
+  document.body.append(div);
+  ReactDOM.render(component, div);
+  return onClose;
+};
+
+export { alert, confirm, modal };
 
 export default Dialog;
