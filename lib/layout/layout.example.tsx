@@ -8,7 +8,7 @@ export default () => {
   return (
     <div>
       <h1>第一个例子</h1>
-      <Layout style={{}}>
+      <Layout className='hi'>
         <Header>header</Header>
         <Content>content</Content>
         <Footer>footer</Footer>
