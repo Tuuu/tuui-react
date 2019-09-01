@@ -1,7 +1,6 @@
 @import '../help';
 
 .tui-layout {
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   &-hasAside {
@@ -9,11 +8,9 @@
   }
   &-content {
     flex-grow: 1;
-    border: 1px solid green;
   }
 
   & & {
     flex-grow: 1;
-    border: 1px solid red;
   }
 }

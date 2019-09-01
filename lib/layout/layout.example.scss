@@ -1,0 +1,41 @@
+@import '../help';
+
+@mixin general {
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+}
+
+@mixin flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  height: 300px;
+  width: 700px;
+}
+
+.header {
+  @include general;
+  background-color: $geek-blue-4;
+}
+
+.aside {
+  width: 200px;
+  @include general;
+  @include flex;
+  background-color: $geek-blue-6;
+}
+
+.content {
+  @include general;
+  @include flex;
+  background-color: $geek-blue-5;
+}
+
+.footer {
+  @include general;
+  background-color: $geek-blue-4;
+}
