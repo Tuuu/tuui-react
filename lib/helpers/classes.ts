@@ -5,7 +5,7 @@ function classesJoin(...names: (string | undefined)[]) {
 
 // classname 生成
 function scopeClassMaker(prefix: string) {
-  return function(name?: string) {
+  return function(name?: string | boolean) {
     return [prefix, name].filter(Boolean).join('-');
   };
 }

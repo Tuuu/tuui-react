@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { classesJoin, scopeClassMaker } from '../helpers/classes';
 import './layout.scss';
+import Aside from './aside';
 
 const scopeClass = scopeClassMaker('tui-layout');
 
-interface Props extends React.HTMLAttributes<HTMLElement> {}
+interface Props extends React.HTMLAttributes<HTMLElement> {
+  children: ReactElement | Array<ReactElement>;
+}
 
 const Layout: React.FunctionComponent<Props> = props => {
   const { className, ...restProps } = props;
+  const x = props.children as Array<ReactElement>;
+  const hasAside = !!x.length && x.some(node => node.type === Aside);
   return (
-    <div className={classesJoin(scopeClass(), className)} {...restProps}>
+    <div
+      className={classesJoin(scopeClass(), scopeClass(hasAside && 'hasAside'), className)}
+      {...restProps}
+    >
       {props.children}
     </div>
   );

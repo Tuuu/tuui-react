@@ -1,9 +1,17 @@
 import React from 'react';
-import { scopeClassMaker } from '../helpers/classes';
+import { classesJoin, scopeClassMaker } from '../helpers/classes';
+
 const scopeClass = scopeClassMaker('tui-layout');
 
-const Header: React.FunctionComponent = () => {
-  return <div className={scopeClass('header')}>Header</div>;
+interface Props extends React.HTMLAttributes<HTMLElement> {}
+
+const Header: React.FunctionComponent<Props> = props => {
+  const { className, ...restProps } = props;
+  return (
+    <div className={classesJoin(scopeClass('header'), className)} {...restProps}>
+      Header
+    </div>
+  );
 };
 
 export default Header;

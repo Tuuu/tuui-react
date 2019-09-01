@@ -1,10 +1,17 @@
 import React from 'react';
-import { scopeClassMaker } from '../helpers/classes';
+import { classesJoin, scopeClassMaker } from '../helpers/classes';
 
 const scopeClass = scopeClassMaker('tui-layout');
 
-const Content: React.FunctionComponent = () => {
-  return <div className={scopeClass('content')}>Content</div>;
+interface Props extends React.HTMLAttributes<HTMLElement> {}
+
+const Content: React.FunctionComponent<Props> = props => {
+  const { className, ...restProps } = props;
+  return (
+    <div className={classesJoin(scopeClass('content'), className)} {...restProps}>
+      Content
+    </div>
+  );
 };
 
 export default Content;
