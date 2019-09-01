@@ -9,7 +9,7 @@ const Aside: React.FunctionComponent<Props> = props => {
   const { className, ...restProps } = props;
   return (
     <div className={classesJoin(scopeClass('aside'), className)} {...restProps}>
-      Aside
+      {props.children}
     </div>
   );
 };

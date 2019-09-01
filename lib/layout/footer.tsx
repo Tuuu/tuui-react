@@ -9,7 +9,7 @@ const Footer: React.FunctionComponent<Props> = props => {
   const { className, ...restProps } = props;
   return (
     <div className={classesJoin(scopeClass('footer'), className)} {...restProps}>
-      Footer
+      {props.children}
     </div>
   );
 };

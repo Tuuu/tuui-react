@@ -9,7 +9,7 @@ const Content: React.FunctionComponent<Props> = props => {
   const { className, ...restProps } = props;
   return (
     <div className={classesJoin(scopeClass('content'), className)} {...restProps}>
-      Content
+      {props.children}
     </div>
   );
 };

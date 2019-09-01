@@ -9,7 +9,7 @@ const Header: React.FunctionComponent<Props> = props => {
   const { className, ...restProps } = props;
   return (
     <div className={classesJoin(scopeClass('header'), className)} {...restProps}>
-      Header
+      {props.children}
     </div>
   );
 };
