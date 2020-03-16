@@ -1,0 +1,70 @@
+@import './lib/_help.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  &::after {
+    box-sizing: border-box;
+  }
+  &::before {
+    box-sizing: border-box;
+  }
+}
+
+ul,
+ol {
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+.site-header {
+  padding: 8px 8px 8px 16px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.site-aside {
+  border-right: 1px solid #eee;
+  margin-right: 16px;
+  h1 {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    font-size: 22px;
+    line-height: 1.5;
+  }
+  ul {
+    min-width: 10em;
+    a {
+      display: block;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      padding-left: 16px;
+      color: #000;
+      font-size: 14px;
+      line-height: 21px;
+      text-decoration: none;
+      &:hover {
+        background-color: $geek-blue-1;
+      }
+      &.active {
+        color: $geek-blue-6;
+        background-color: $geek-blue-2;
+      }
+    }
+  }
+}
+
+.site-footer {
+  padding: 16px;
+  text-align: center;
+  border-top: 1px solid #eee;
+}
