@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
+import { HashRouter as Router, Route, NavLink, Switch, Redirect } from 'react-router-dom';
 import IconExample from './lib/icon/icon.example';
 import DialogExample from './lib/dialog/dialog.example';
 import LayoutExample from './lib/layout/layout.example';
@@ -32,9 +32,12 @@ ReactDom.render(
           </ul>
         </Aside>
         <Content>
-          <Route path="/icon" component={IconExample} />
-          <Route path="/dialog" component={DialogExample} />
-          <Route path="/layout" component={LayoutExample} />
+          <Switch>
+            <Route path="/icon" component={IconExample} />
+            <Route path="/dialog" component={DialogExample} />
+            <Route path="/layout" component={LayoutExample} />
+            <Redirect to="/icon" />
+          </Switch>
         </Content>
       </Layout>
       <Footer className="site-footer">&copy;&nbsp;Tuuu</Footer>
