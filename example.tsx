@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import { HashRouter as Router, Route, NavLink, Switch, Redirect } from 'react-router-dom';
-import IconExample from './lib/icon/icon.example';
+// import IconExample from './lib/icon/icon.example';
+import IconDemo from './lib/icon/icon.demo';
 import DialogExample from './lib/dialog/dialog.example';
 import LayoutExample from './lib/layout/layout.example';
 import Layout, { Aside, Content, Header, Footer } from './lib/layout/layout';
@@ -31,9 +32,9 @@ ReactDom.render(
             </li>
           </ul>
         </Aside>
-        <Content>
+        <Content className="site-content">
           <Switch>
-            <Route path="/icon" component={IconExample} />
+            <Route path="/icon" component={IconDemo} />
             <Route path="/dialog" component={DialogExample} />
             <Route path="/layout" component={LayoutExample} />
             <Redirect to="/icon" />
