@@ -25,6 +25,14 @@ h6 {
   font-weight: normal;
 }
 
+pre {
+  font-family: 'Liberation Mono', Consolas, monospace Menlo, Courier;
+}
+
+.site-page {
+  min-height: 100vh;
+}
+
 .site-header {
   padding: 8px 8px 8px 16px;
   font-size: 16px;

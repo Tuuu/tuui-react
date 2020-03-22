@@ -10,7 +10,7 @@ import './example.scss';
 
 ReactDom.render(
   <Router>
-    <Layout>
+    <Layout className="site-page">
       <Header className="site-header">
         <div className="logo">tui</div>
       </Header>
