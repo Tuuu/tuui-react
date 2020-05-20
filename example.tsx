@@ -5,6 +5,7 @@ import { HashRouter as Router, Route, NavLink, Switch, Redirect } from 'react-ro
 import IconDemo from './lib/icon/icon.demo';
 import DialogExample from './lib/dialog/dialog.example';
 import LayoutExample from './lib/layout/layout.example';
+import FormExample from './lib/form/form.example';
 import Layout, { Aside, Content, Header, Footer } from './lib/layout/layout';
 import './example.scss';
 
@@ -30,6 +31,9 @@ ReactDom.render(
             <li>
               <NavLink to="/layout">布局</NavLink>
             </li>
+            <li>
+              <NavLink to="/form">Form</NavLink>
+            </li>
           </ul>
         </Aside>
         <Content className="site-content">
@@ -37,6 +41,7 @@ ReactDom.render(
             <Route path="/icon" component={IconDemo} />
             <Route path="/dialog" component={DialogExample} />
             <Route path="/layout" component={LayoutExample} />
+            <Route path="/form" component={FormExample} />
             <Redirect to="/icon" />
           </Switch>
         </Content>
